@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Rock, Paper, Scissors</title>
+    </head>
+    <body>
+        <script>
+            function getComputerChoice() {
+                let randomNumber = Math.round((Math.random())*100)
+                if (randomNumber < 33) {
+                    return 'rock'
+                }
+                else if (randomNumber < 66) {
+                    return 'paper'
+                }
+                else {
+                    return 'scissors'
+                }
+            }
+
+            function getPlayerChoice() {
+                let input;
+                let playerChoiceFormatted;
+                while (playerChoiceFormatted !== 'rock' && playerChoiceFormatted !== 'paper' && playerChoiceFormatted !== 'scissors') {
+                input = prompt('Enter a valid choice. rock, paper or scissors. ');
+                playerChoiceFormatted = input.toLowerCase();
+                }
+                return playerChoiceFormatted
+            } 
+            
+            let computerChoice = getComputerChoice();
+            let playerChoice = getPlayerChoice();
+
+            if (computerChoice === playerChoice) {
+                console.log('It\'s a draw!')
+            } else if (computerChoice === 'rock') {
+                if (playerChoice === 'paper') {console.log('You Win!')}
+                else {console.log('You Lose!')}
+            } else if (computerChoice === 'paper') {
+                if (playerChoice === 'scissors') {console.log('You Win!')}
+                else {console.log('You Lose!')}
+            } else {
+                if (playerChoice === 'rock') {console.log('You Win!')}
+                else {console.log('You Lose!');}
+            }
+
+            console.log('Your choice: ' + playerChoice)
+            console.log('Computer\'s choice: ' + computerChoice)
+        </script>
+    </body>
+</html>
